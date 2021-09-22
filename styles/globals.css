@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.navbar{
+    height: 3.7rem;
+    background-color: #D7E9F7;
+    display: block;
+}
+.navbar div{
+    position: absolute;
+    right: 4rem;
+    font-size: 1.6rem;
+    top: 0.5rem;
+}
+.navbar span{
+    font-size: 2rem;
+    margin: 1rem 0rem 0rem 1rem;
+    
+}
+.loginform{
+    margin-top: 15rem;
+}
+.loginform form input{
+    border: 2px solid black;
+    border-radius: 4px;
+    padding:0.7rem 2rem;
+    font-size: 1.4rem;
+    margin: 0.2rem 0rem;
+}
+.loginform form button {
+    border-radius: 4px;
+    width: 7rem;
+    height: 3rem;
+    font-size: 1.7rem;
+    margin-top: 1rem;
+    background-color: #D7E9F7;
+}
+.teacherstudentselector{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.teacherstudentselector span{
+    border: 2px solid black;
+    padding: 0.7rem 2.6rem;
+    border-radius: 4px;
+}
+.teacherstudentselector span:hover{
+    background-color: #F9F3DF;
+}
+.selected{
+    background-color: #F9F3DF;
+}
