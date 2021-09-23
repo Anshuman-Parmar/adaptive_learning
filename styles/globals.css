@@ -23,8 +23,8 @@
 .loginform form input{
     border: 2px solid black;
     border-radius: 4px;
-    padding:0.7rem 2rem;
-    font-size: 1.4rem;
+    padding:0.7rem 1rem;
+    font-size: 1.3rem;
     margin: 0.2rem 0rem;
 }
 .loginform form button {
@@ -41,7 +41,7 @@
 }
 .teacherstudentselector span{
     border: 2px solid black;
-    padding: 0.7rem 2.6rem;
+    padding: 0.7rem 2.5rem;
     border-radius: 4px;
 }
 .teacherstudentselector span:hover{
@@ -49,4 +49,30 @@
 }
 .selected{
     background-color: #F9F3DF;
+}
+.coursesnavbar{
+    font-size: 1.6rem;
+    margin-left: 5rem;
+}
+.createcoursebutton{
+    background-color: #D7E9F7;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 2rem 0rem 0rem 2rem;
+}
+.createcourseinput{
+    margin-left: 2rem;
+    margin-top: 2rem;
+    padding: 0.7rem;
+    font-size: 1.2rem;
+    width: 70%;
+    border: 2px solid black;
+}
+.createcoursesubmit{
+    background-color: #D7E9F7;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin: 2rem 0rem 0rem 2rem;
 }
