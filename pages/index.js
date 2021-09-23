@@ -4,6 +4,9 @@ export default function Home() {
   return (
     <>
   <Navbar/>
+   <div className="flex justify-center text-4xl">
+     This is home go to login or signup
+   </div>
     </>
     )
 }

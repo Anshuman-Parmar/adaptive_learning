@@ -25,7 +25,7 @@ export class courses extends Component {
     }
     async onSubmit(e){
         e.preventDefault()
-        const res = await fetch('http://localhost:3000/api/createcourse', {
+        const res = await fetch('/api/createcourse', {
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

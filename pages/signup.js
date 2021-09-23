@@ -17,7 +17,7 @@ export class signup extends Component {
     async onSubmit(e){
         e.preventDefault()
         const data = this.state
-        const res = await fetch("http://localhost:3000/api/signup",{
+        const res = await fetch("/api/signup",{
             method: "POST",
             headers:{
                 "Content-Type":"application/json"
