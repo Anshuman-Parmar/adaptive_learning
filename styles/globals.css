@@ -76,3 +76,19 @@
     border-radius: 4px;
     margin: 2rem 0rem 0rem 2rem;
 }
+.coursecard{
+    background-color: #faefe0;
+    font-size: 2rem;
+    width: 40%;
+    padding: 0.7rem;
+    border-radius: 4px;
+    margin: 1rem 2rem;
+}
+.coursecard button{
+    font-size: 1rem;
+    position: absolute;
+    margin-top: 1rem;
+    background-color: #D7E9F7;
+    padding: 0.2rem;
+    border-radius: 4px;
+}

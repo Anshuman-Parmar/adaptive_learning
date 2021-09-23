@@ -2,16 +2,26 @@ import React, { Component } from 'react'
 import Navbar from '../components/Navbar'
 import cookies from "js-cookie"
 import jwt from 'jsonwebtoken'
-
+import Coursecard from '../components/Coursecard'
 export class courses extends Component {
     constructor(props) {
         super(props)
-    
+        
         this.state = {
             createCourse:false,
         }
         this.createCourse=this.createCourse.bind(this)
         this.onSubmit=this.onSubmit.bind(this)
+    }
+    static async getInitialProps(){
+        const response = await fetch('http://localhost:3000/api/getcourses', {
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+        const res2 = await response.json()
+        return {data:[res2]}      
     }
     async onSubmit(e){
         e.preventDefault()
@@ -29,12 +39,18 @@ export class courses extends Component {
         if(res2.error){
             console.log(res2.error)
         }
+        if(res2.message == "Course created successful"){
+            alert(res2.message)
+            this.setState({createCourse:false})
+            window.location.reload()
+        }
     }
     createCourse(){
         this.setState({createCourse:true})
+        
     }
-
     componentDidMount(){
+        console.log(this.props.data);
         const token = cookies.get("token")
         try{
             const decoded = jwt.verify(token,process.env.JWT_SECRET)
@@ -46,9 +62,9 @@ export class courses extends Component {
             if(error.message == "invalid token"){
                 cookies.remove('token')
                 window.location.href="/login"
+            }
         }
     }
-}
     
     render() {
         return (
@@ -60,6 +76,12 @@ export class courses extends Component {
                     <input placeholder="Name of Course" type="text" className={this.state.createCourse?"createcourseinput":"hidden"} onChange={(e)=>{this.setState({name:e.target.value})}}></input>
                     <button type="submit" className={this.state.createCourse?"createcoursesubmit":"hidden"}>Save</button>
                 </form>
+                {this.props.data[0].map((course)=>{
+                    return(
+
+                        <Coursecard name={course.name} _id={course._id} isTeacher={this.state.isTeacher} />
+                    )
+                })}
             </div>
             </>
         )
