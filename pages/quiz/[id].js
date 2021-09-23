@@ -11,7 +11,7 @@ function id(data) {
 export default id
 export async function getServerSideProps(context){
     const {id} = context.query;
-    const res = await fetch(`/api/quiz/${id}`,{
+    const res = await fetch(`/api/getcourses`,{
         method:"GET",
         headers:{
             "Content-Type":"application/json"
