@@ -92,3 +92,20 @@
     padding: 0.2rem;
     border-radius: 4px;
 }
+.numberinput{
+    border: 2px solid black;
+    display: block;
+}
+.numberinputspan{
+    margin-left: 2rem;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+.startcreatingquizbutton{
+    margin-left: 2rem;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    background-color: #D7E9F7;
+    padding: 0.5rem 2rem;
+    border-radius: 4px;
+}

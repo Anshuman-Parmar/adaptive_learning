@@ -14,7 +14,7 @@ export class courses extends Component {
         this.onSubmit=this.onSubmit.bind(this)
     }
     static async getInitialProps(){
-        const response = await fetch('/api/getcourses', {
+        const response = await fetch('http://localhost:3000/api/getcourses', {
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -71,7 +71,7 @@ export class courses extends Component {
             <>
             <Navbar/>
             <div>
-                <button className={this.state.isTeacher?"createcoursebutton":"hidden"} onClick={this.createCourse}>Create Course</button>
+                <button className={this.state.isTeacher?"createcoursebutton":"hidden"} onClick={this.createQuiz}>Create Course</button>
                 <form onSubmit={this.onSubmit}>
                     <input placeholder="Name of Course" type="text" className={this.state.createCourse?"createcourseinput":"hidden"} onChange={(e)=>{this.setState({name:e.target.value})}}></input>
                     <button type="submit" className={this.state.createCourse?"createcoursesubmit":"hidden"}>Save</button>

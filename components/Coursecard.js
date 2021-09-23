@@ -12,7 +12,7 @@ export class Coursecard extends Component {
     async deleteCourse(){
         const ans = confirm("Are you sure you want to delete this course?")
         if(ans){
-            await fetch('http://localhost:3000/api/deletecourse', {
+            await fetch('/api/deletecourse', {
                 method:"DELETE",
                 headers:{
                     "Content-Type":"application/json"

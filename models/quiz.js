@@ -1,7 +1,10 @@
 import mongoose from 'mongoose'
 
 const quizSchema = new mongoose.Schema({
-    quiz:{
+        courseId:{
+            type:String,
+            required:true
+        },
         name:{
             type:String,
             required:true
@@ -10,31 +13,31 @@ const quizSchema = new mongoose.Schema({
             {
                 name:{
                     type:String,
-                    required:true
+                    required:false
                 },
                 answer:[
                     {
                         name:{
                             type:String,
-                            required:true
+                            required:false
                         },
                         isCorrect:{
                             type:Boolean,
-                            required:true
+                            required:false
                         }
 
                     }
                 ],
                 point:{
                     type:Number,
-                    required:true,
+                    required:false,
                     default:1
                 }
             }
         ]
 
-    }
-}, 
+    },
+
     {timestamps: true
 })
 

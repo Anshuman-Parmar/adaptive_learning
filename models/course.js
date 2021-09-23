@@ -5,10 +5,6 @@ const courseSchema = new mongoose.Schema({
             type:String,
             required:true
         },
-        quiz_id:{
-            type:mongoose.Schema.Types.ObjectId,
-            required:false
-        }
 }, 
     {timestamps: true
 })
