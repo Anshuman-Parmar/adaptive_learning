@@ -6,17 +6,16 @@ import Question from '../../components/Question'
 export class id extends Component {
     constructor(props) {
         super(props)
-    
+        
         this.state = {
-            score:0,
             name:"",
+            answers:[],
             questions:[]
         }
         this.onSubmit = this.onSubmit.bind(this)
         this.fetchQuiz=this.fetchQuiz.bind(this)
         this.submitQuiz=this.submitQuiz.bind(this)
         this.addQuestion = this.addQuestion.bind(this)
-        this.changeScore=this.changeScore.bind(this)
     }
     async fetchQuiz(){
         const quiz = await fetch("/api/getquiz",{
@@ -102,20 +101,35 @@ export class id extends Component {
         
         
     }
-    submitQuiz(){
-        alert(this.state.score)
-        window.location.reload()
+    async submitQuiz(e){
+        e.preventDefault()
+        const answers = this.state.answers
+        let score = 0
+        this.state.questions.map(item=>{
+            let flag = 1
+            item.answers.map((item)=>{
+                if(item.isCorrect){
+                    if(!answers.includes(item._id)){
+                        console.log("bad");
+                        flag=0
+                    }
+                }
+                else if(item.isCorrect === false){
+                    if(answers.includes(item._id)){
+                        console.log("bad");
+                        flag=0
+                    }
+                }
+            })
+            if(flag === 1){
+                score+=item.point
+            }
+        })
+        alert("Your score is : "+score)
+        
     }
     addQuestion(){
         this.setState({addQuestion:true})
-    }
-    changeScore(){
-        if(this.state.currentAnswerIsCorrect){
-            this.setState(prevState=>({score:prevState.score+this.state.currentQuestionPoint}))
-        }
-        else{
-            this.setState(prevState=>({score:prevState.score-this.state.currentQuestionPoint}))
-        }
     }
     render() {
         
@@ -156,7 +170,7 @@ export class id extends Component {
             
             else{
                 return(
-                    <div>
+                    <form onSubmit={this.submitQuiz}>
                         <h1 className="text-center text-7xl">{this.state.name.toUpperCase()} QUIZ</h1>
                         {this.state.questions.map((element)=>{
 
@@ -165,7 +179,17 @@ export class id extends Component {
                                 <h1 className="questiontext">{element.name}</h1>
                                 {element.answers.map((element)=>{
                                     return(<>
-                                        <input type="checkbox" className="studentcheckbox" onChange={(e)=>{if(e.target.value=="on" && element.isCorrect){this.setState(prevState=>({score:prevState.score+1}))}else{this.setState(prevState=>({score:prevState.score-1}))}}}></input>
+                                        <input type="checkbox" className="studentcheckbox" onClick={(e)=>{
+                                            if(e.target.checked){
+                                                this.setState({answers:this.state.answers.concat(element._id)})
+                                            }
+                                            else{
+                                                this.setState({
+                                                    answers: this.state.answers.filter(item=>{ return item!=element._id;;})})
+                                                }
+                                                }}> 
+                                        
+                                        </input>
                                         <h2 className="answerstudenttext">{element.name}</h2>
                                         </>
                                         )
@@ -173,9 +197,9 @@ export class id extends Component {
                             </div>
                             )
                         })}
-                        <button className="quizendbutton" onClick={this.submitQuiz}>Save</button>
+                        <button className="quizendbutton" type="submit">Save</button>
                         
-                    </div>
+                    </form>
                 )
             }
         }

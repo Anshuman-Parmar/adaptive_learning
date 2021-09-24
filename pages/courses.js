@@ -74,7 +74,7 @@ export class courses extends Component {
             <>
             <Navbar/>
             <div>
-                <button className={this.state.isTeacher?"createcoursebutton":"hidden"} onClick={this.createQuiz}>Create Course</button>
+                <button className={this.state.isTeacher?"createcoursebutton":"hidden"} onClick={this.createCourse}>Create Course</button>
                 <form onSubmit={this.onSubmit}>
                     <input placeholder="Name of Course" type="text" className={this.state.createCourse?"createcourseinput":"hidden"} onChange={(e)=>{this.setState({name:e.target.value})}}></input>
                     <button type="submit" className={this.state.createCourse?"createcoursesubmit":"hidden"}>Save</button>
