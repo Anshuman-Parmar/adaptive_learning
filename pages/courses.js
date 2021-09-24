@@ -14,7 +14,7 @@ export class courses extends Component {
         this.onSubmit=this.onSubmit.bind(this)
     }
     static async getInitialProps(){
-        const response = await fetch('http://localhost:3000/api/getcourses', {
+        const response = await fetch('ec2-3-109-49-162.ap-south-1.compute.amazonaws.com/api/getcourses', {
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"

@@ -34,7 +34,6 @@ export class Navbar extends Component {
                 <Link href="/signup"><a className="ml-2">Signup</a></Link>
                 </div>
                 <div className={this.state.isLoggenIn?"":"hidden"}>
-                <Link href="/profile"><a className="mr-7">Profile</a></Link>
                 <button onClick={()=>{cookies.remove("token");window.location.href="/";this.setState({isLoggenIn:false})}}><a className="ml-2">Logout</a></button>
                 </div>
                 

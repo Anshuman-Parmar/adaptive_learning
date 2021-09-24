@@ -113,7 +113,7 @@
     background-color: #D7E9F7;
     padding: 0.7rem 1rem;
     margin-top: 1rem;
-    margin-left: 1rem;
+    margin-left: 2rem;
     border-radius: 4px;
 }
 .addnewquestion{
@@ -147,4 +147,34 @@
     border-radius: 4px;
     width: 4rem;
     padding: 0.3rem;
+}
+.answerteachertext{
+    font-size: 1.5rem;
+}
+.questiontext{
+    margin: 1rem 0rem 1rem 0rem;
+    font-size: 2rem;
+}
+.questioncontainer{
+    margin: 2rem 0rem 2rem 6rem;
+    background-color: #F9F3DF;
+    padding: 1rem;
+    padding-top: 0rem;
+    border-radius: 4px;
+    width: 60%;
+}
+.answerstudenttext{
+    margin-left: 1.5rem;
+    font-size: 1.5rem;
+}
+.studentcheckbox{
+    position: relative;
+    top: 2rem;
+}
+.quizendbutton{
+    font-size: 1.5rem;
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+    background-color: #D7E9F7;
+    margin: 0rem 0rem 1rem 6rem;
 }

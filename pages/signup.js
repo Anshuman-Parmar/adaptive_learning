@@ -27,7 +27,7 @@ export class signup extends Component {
 
          const res2 = await res.json()
          if(res2.error){
-            console.log(res2.error)
+            alert(res2.error)
          }else{
             console.log("SignUp form submitted")
             window.location.href="/login"

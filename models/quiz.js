@@ -15,7 +15,7 @@ const quizSchema = new mongoose.Schema({
                     type:String,
                     required:false
                 },
-                answer:[
+                answers:[
                     {
                         name:{
                             type:String,
@@ -23,7 +23,8 @@ const quizSchema = new mongoose.Schema({
                         },
                         isCorrect:{
                             type:Boolean,
-                            required:false
+                            required:true,
+                            default:false
                         }
 
                     }

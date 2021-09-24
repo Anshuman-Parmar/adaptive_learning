@@ -5,7 +5,7 @@ export default function Home() {
     <>
   <Navbar/>
    <div className="flex justify-center text-4xl">
-     This is home go to login or signup
+     This is home go to login, signup or courses
    </div>
     </>
     )

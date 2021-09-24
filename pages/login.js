@@ -26,7 +26,7 @@ export class login extends Component {
 
         const res2 = await res.json()
         if(res2.error){
-            console.log(res2.error)
+            alert(res2.error)
         }
         else{
             cookie.set('token', res2.token)

@@ -10,7 +10,7 @@ export default async(req,res)=>{
         const newQuiz = await new quiz({
             courseId:req.body.courseId,
             name:req.body.name,
-            questions:req.body.question
+            questions:req.body.questions
         }).save()
         console.log(newQuiz)
         res.status(201).json({message:"Course created successful"})
