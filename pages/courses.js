@@ -8,20 +8,12 @@ export class courses extends Component {
         super(props)
         
         this.state = {
+            data:[],
             createCourse:false,
         }
         this.createCourse=this.createCourse.bind(this)
         this.onSubmit=this.onSubmit.bind(this)
-    }
-    static async getInitialProps(){
-        const response = await fetch('ec2-3-109-49-162.ap-south-1.compute.amazonaws.com/api/getcourses', {
-                method:"GET",
-                headers:{
-                    "Content-Type":"application/json"
-                }
-            })
-        const res2 = await response.json()
-        return {data:[res2]}      
+        this.getData = this.getData.bind(this)
     }
     async onSubmit(e){
         e.preventDefault()
@@ -49,9 +41,20 @@ export class courses extends Component {
         this.setState({createCourse:true})
         
     }
+    async getData(){
+        const response = await fetch('/api/getcourses', {
+                    method:"GET",
+                    headers:{
+                        "Content-Type":"application/json"
+                    }
+                })
+                const res2 = await response.json()
+                this.setState({data:res2})
+                console.log(this.state.data);
+            }
     componentDidMount(){
-        console.log(this.props.data);
         const token = cookies.get("token")
+        this.getData()
         try{
             const decoded = jwt.verify(token,process.env.JWT_SECRET)
             if(decoded.userNow.teacherSelector){
@@ -76,7 +79,7 @@ export class courses extends Component {
                     <input placeholder="Name of Course" type="text" className={this.state.createCourse?"createcourseinput":"hidden"} onChange={(e)=>{this.setState({name:e.target.value})}}></input>
                     <button type="submit" className={this.state.createCourse?"createcoursesubmit":"hidden"}>Save</button>
                 </form>
-                {this.props.data[0].map((course)=>{
+                {this.state.data.map((course)=>{
                     return(
 
                         <Coursecard name={course.name} _id={course._id} isTeacher={this.state.isTeacher} />
